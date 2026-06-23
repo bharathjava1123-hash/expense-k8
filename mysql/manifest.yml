@@ -24,7 +24,7 @@ spec:
         project: expense
     spec:
       containers:
-      - name: nginx
+      - name: mysql
         image: bharath1106/mysql:v1
 ---
 kind: Service

@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind:  Deployment
 metadata:
-  name: frontend
+  name: backend
   namespace: expense
   labels: # these are replicaset labels
-    app: frontend
-    tier: web
+    app: backend
+    tier: app
     project: expense
 spec:
   replicas: 2
   selector:
     # these are used to select the pod to create replicas
     matchLabels:
-      app: frontend
-      tier: web
+      app: backend
+      tier: app
       project: expense
   template:
     metadata:
       # these labels belongs to pod
       labels:
-        app: frontend
-        tier: web
+        app: backend
+        tier: app
         project: expense
     spec:
       containers:
-      - name: frontend
+      - name: backend
         image: bharath1106/frontend:v1
 ---
 kind: Service
@@ -33,7 +33,6 @@ metadata:
   name: frontend
   namespace: expense
 spec:
-  type: LoadBalancer
   selector:
     app: frontend
     tier: web
