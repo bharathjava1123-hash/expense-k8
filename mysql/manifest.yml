@@ -30,13 +30,15 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx
+  name: mysql
+  namespace: expense
 spec:
   selector:
-    tier: frontend
-    app: nginx
+    app: mysql
+    tier: db
+    project: expense
   ports:
-  - name: nginx-svc-port
+  - name: mysql-port
     protocol: TCP
-    port: 80 # service port
-    targetPort: 80 # container port
+    port: 3306 # service port
+    targetPort: 3306 # container port
