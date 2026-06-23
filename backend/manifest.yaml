@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: bharath1106/frontend:v1
+        image: bharath1106/backend:v1
         envFrom:
         - configMapRef:
             name: backend
