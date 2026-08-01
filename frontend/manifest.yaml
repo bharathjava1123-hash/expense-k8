@@ -83,7 +83,7 @@ data:
         location = /50x.html {
             root   /usr/share/nginx/html;
         }
-        # this is as part of nginx configmap
+        # this is as part of nginx configmap file
         location /api/ { 
             proxy_pass http://backend:8080/;
         }
